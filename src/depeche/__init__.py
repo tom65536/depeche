@@ -1,3 +1,6 @@
 """Depeche is a asynchroneous Python framework."""
 
-from .__about__ import __version__
+from .__about__ import __version__ as __version__
+
+
+__all__ = ["__version__"]
