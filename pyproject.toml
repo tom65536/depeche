@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit_scm>=1.7,<2.0"]
+build-backend = "flit_scm:buildapi"
+
+[tool.flit.sdist]
+exclude = [".gitignore"]
+
+[tool.setuptools_scm]
+write_to = "src/depeche/__about___.py"
+
+
+[project]
+name = "depeche"
+authors = [{name = "tom65536", email = "peregrinus@planet.ms"}]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/tom65536/depeche"
