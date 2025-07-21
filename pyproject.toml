@@ -7,6 +7,7 @@ exclude = [".gitignore"]
 
 [tool.setuptools_scm]
 write_to = "src/depeche/__about___.py"
+version_file = "src/depeche/__about__.py"
 
 
 [project]
@@ -19,3 +20,4 @@ dynamic = ["version", "description"]
 
 [project.urls]
 Home = "https://github.com/tom65536/depeche"
+
