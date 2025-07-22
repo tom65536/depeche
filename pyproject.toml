@@ -21,3 +21,14 @@ dynamic = ["version", "description"]
 [project.urls]
 Home = "https://github.com/tom65536/depeche"
 
+[project.optional-dependencies]
+test = [
+   "pytest>=8.4,<9.0",
+   "pytest-cov>=6.2,<7.0",
+   "pytest-asyncio>=1.1,<2.0"
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "--cov=depeche --cov-report=term-missing"
+testpaths = ["tests"]

@@ -47,18 +47,32 @@ class Dispatcher:
         :param args: the message arguments.
         """
         if not hasattr(receiver, "react"):
-            self.dispose(receiver, args)
+            await self.dispose(receiver, args)
             return
         react = receiver.react
-        inspect.ismethod(react)
-        inspect.isawaitable(react)
+
+        if inspect.iscoroutinefunction(react):
+            result = await receiver.react(*args)
+            await self.receive(result)
+
+        elif inspect.isasyncgenfunction(react):
+            async for message in receiver.react(*args):
+                await self.receive(message)
+
+        else:
+            result = receiver.react(*args)
+            if inspect.isgenerator(result):
+                for message in result:
+                    await self.receive(message)
+            else:
+                await self.receive(result)
 
     async def receive(self, message: Message) -> None:
         """Receive and enqueue a single message.
 
         :param message: the received message.
         """
-        await self._queue.put(message)
+        await self._message_queue.put(message)
 
     async def dispose(
         self,
