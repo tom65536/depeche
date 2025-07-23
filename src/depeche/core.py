@@ -3,10 +3,27 @@
 import asyncio
 import inspect
 from collections.abc import Sequence
-from typing import TypeAlias, Union
+from typing import (
+    Any,
+    Protocol,
+    TypeAlias,
+    TypeGuard,
+    Union,
+)
 
 
 Message: TypeAlias = Union[object, Sequence[object]]
+
+
+class Responsive(Protocol):
+    """Protocol for objects with ``react`` field."""
+
+    react: Any
+
+
+def is_responsive(obj: object) -> TypeGuard[Responsive]:
+    """Check whether ``obj`` has a ``reactaa member."""
+    return hasattr(obj, "react")
 
 
 class Dispatcher:
@@ -49,7 +66,7 @@ class Dispatcher:
         :param receiver: the receiver of the message
         :param args: the message arguments.
         """
-        if not hasattr(receiver, "react"):
+        if not is_responsive(receiver):
             await self.dispose(receiver, args)
             return
         react = receiver.react
@@ -108,10 +125,7 @@ class Dispatcher:
 
     async def _loop(self) -> None:
         """Run the dispatcher loop."""
-        try:
-            with asyncio.TaskGroup() as tg:
-                while True:
-                    message = await self._message_queue.get()
-                    tg.create_task(self.dispatch(message))
-        except asyncio.QueueShutdown:
-            pass
+        async with asyncio.TaskGroup() as tg:
+            while True:
+                message = await self._message_queue.get()
+                tg.create_task(self.dispatch(message))

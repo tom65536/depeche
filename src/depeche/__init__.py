@@ -1,4 +1,4 @@
-"""Depeche is a asynchroneous Python framework."""
+"""Depeche is a asynchronous Python framework."""
 
 from .__about__ import __version__ as __version__
 

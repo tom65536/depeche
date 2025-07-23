@@ -21,6 +21,9 @@ test = [
    "pytest-cov>=6.2,<7.0",
    "pytest-asyncio>=1.1,<2.0"
 ]
+type = [
+   "pyright>=1.1.14,<2.0"
+]
 
 [tool.flit.sdist]
 exclude = [".gitignore"]
@@ -33,3 +36,7 @@ version_file = "src/depeche/__about__.py"
 minversion = "8.0"
 addopts = "--cov=depeche --cov-report=term-missing"
 testpaths = ["tests"]
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__"]
