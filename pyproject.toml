@@ -2,13 +2,6 @@
 requires = ["flit_scm>=1.7,<2.0"]
 build-backend = "flit_scm:buildapi"
 
-[tool.flit.sdist]
-exclude = [".gitignore"]
-
-[tool.setuptools_scm]
-write_to = "src/depeche/__about___.py"
-version_file = "src/depeche/__about__.py"
-
 
 [project]
 name = "depeche"
@@ -17,6 +10,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 dynamic = ["version", "description"]
+requires-python=">=3.10"
 
 [project.urls]
 Home = "https://github.com/tom65536/depeche"
@@ -27,6 +21,13 @@ test = [
    "pytest-cov>=6.2,<7.0",
    "pytest-asyncio>=1.1,<2.0"
 ]
+
+[tool.flit.sdist]
+exclude = [".gitignore"]
+
+[tool.setuptools_scm]
+write_to = "src/depeche/__about___.py"
+version_file = "src/depeche/__about__.py"
 
 [tool.pytest.ini_options]
 minversion = "8.0"

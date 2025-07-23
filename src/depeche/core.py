@@ -19,11 +19,14 @@ class Dispatcher:
     - Determine ``react`` method.
     - Collect messages from running ``react`` method.
     - Repeat or exit.
+
+    :param maxsize: passed to queue
     """
 
-    def __init__(self) -> None:
+    def __init__(self, /, maxsize: int = 0) -> None:
         """Initialize the dispatcher."""
-        self._message_queue: asyncio.Queue[Message] = asyncio.Queue()
+        self._message_queue: asyncio.Queue[Message] = asyncio.Queue(maxsize=maxsize)
+        self._loop_task: asyncio.Task | None = None
 
     async def dispatch(self, message: Message) -> None:
         """Dispatch a single message.
@@ -88,3 +91,27 @@ class Dispatcher:
         :param args: the message arguments.
         """
         pass
+
+    def start(self) -> bool:
+        """Start the dispatcher loop as a new task.
+
+        If this dispatcher has already a loop running
+        this method does nothing.
+
+        :return: whether a new loop was started
+        """
+        if self._loop_task is not None:
+            return False
+        coro = self._loop()
+        self._loop_task = asyncio.create_task(coro)
+        return True
+
+    async def _loop(self) -> None:
+        """Run the dispatcher loop."""
+        try:
+            with asyncio.TaskGroup() as tg:
+                while True:
+                    message = await self._message_queue.get()
+                    tg.create_task(self.dispatch(message))
+        except asyncio.QueueShutdown:
+            pass
