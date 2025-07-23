@@ -20,3 +20,8 @@ repos:
     hooks:
       - id: codespell
         additional_dependencies: [ "tomli" ]
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 3.2.1
+    hooks:
+      - id: editorconfig-checker
+        alias: ec
