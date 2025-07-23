@@ -2,6 +2,7 @@
 
 Depeche is a [Python](https://python.org/) library for message based programming.
 
+[![Python package](https://github.com/tom65536/depeche/actions/workflows/python-package.yml/badge.svg)](https://github.com/tom65536/depeche/actions/workflows/python-package.yml)
 ![GitHub License](https://img.shields.io/github/license/tom65536/depeche)
 ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Ftom65536%2Fdepeche%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)
 ![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fraw.githubusercontent.com%2Ftom65536%2Fdepeche%2Frefs%2Fheads%2Fmain%2FOSSMETADATA)
