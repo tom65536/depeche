@@ -1,6 +1,7 @@
 [build-system]
-requires = ["flit_scm>=1.7,<2.0"]
-build-backend = "flit_scm:buildapi"
+requires = ["flit_core >=3.2,<4", "versioningit"]
+build-backend = "flit_core.buildapi"
+
 
 
 [project]
@@ -40,10 +41,6 @@ type = [
 [tool.flit.sdist]
 exclude = [".gitignore"]
 
-[tool.setuptools_scm]
-version_file = "src/depeche/__about__.py"
-relative_to = "pyproject.toml"
-
 [tool.pytest.ini_options]
 minversion = "8.0"
 addopts = "--cov=depeche --cov-report=term-missing"
@@ -56,8 +53,20 @@ exclude = ["**/__pycache__"]
 [tool.ruff]
 line-length = 120
 indent-width = 3
+exclude = [ "__about__.py" ]
 
 [tool.ruff.format]
 quote-style = "single"
+
+[tool.versioningit.write]
+file = "src/depeche/__about__.py"
 indent-style = "space"
 docstring-code-format = true
+
+[tool.versioningit]
+next-version = "smallest"
+
+[tool.versioningit.vcs]
+method = "git"
+match = ["v*"]
+default-tag = "1.0.0"
