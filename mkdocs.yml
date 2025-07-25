@@ -1,0 +1,11 @@
+site_name: "RSVP"
+
+nav:
+  - api.md
+
+theme:
+  name: "material"
+
+plugins:
+- search
+- mkdocstrings
