@@ -73,7 +73,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     environment:
       name: pypi
-      url: https://pypi.org/p/depeche
+      url: https://pypi.org/p/rsvp
     permissions:
       id-token: write
     steps:
