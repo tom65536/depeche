@@ -2,7 +2,7 @@
 
 from collections.abc import Sequence
 
-from depeche.core import Dispatcher
+from rsvp.core import Dispatcher
 
 import pytest
 
