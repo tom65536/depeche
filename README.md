@@ -2,9 +2,11 @@
 
 RSVP is a [Python](https://python.org/) library for message based programming.
 
-[![Python package](https://github.com/tom65536/rsvp/actions/workflows/python-package.yml/badge.svg)](https://github.com/tom65536/rsvp/actions/workflows/python-package.yml)
+![PyPI - Version](https://img.shields.io/pypi/v/rsvp?link=https%3A%2F%2Fpypi.org%2Fp%2Frsvp%2F)
+![PyPI - Status](https://img.shields.io/pypi/status/rsvp)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tom65536/rsvp/python-package.yml?logo=github&label=CI)
 ![GitHub License](https://img.shields.io/github/license/tom65536/rsvp)
-![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Ftom65536%2Frsvp%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)
+![Python Version from PEP 621 TOML](https://img.shiels.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Ftom65536%2Frsvp%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)
 ![OSS Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fraw.githubusercontent.com%2Ftom65536%2Frsvp%2Frefs%2Fheads%2Fmain%2FOSSMETADATA)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![Checked with pyright](https://microsoft.github.io/pyright/img/pyright_badge.svg)](https://microsoft.github.io/pyright/)
@@ -27,11 +29,10 @@ import rsvp
 # ... more to come
 ```
 
-## License
+## Contribute
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## Project Status
-
-Early development
+Read our [CONTRIBUTING](./CONTRIBUTING.md)
+guide. Report security related issues as
+described in our [Security](./SECURITY.md)
+guide.
 
