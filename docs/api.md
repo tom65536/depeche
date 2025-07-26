@@ -1,4 +1,5 @@
 
+## Core Module
 
-## ::: rsvp.core.Dispatcher
+## ::: rsvp.core
    handler: python

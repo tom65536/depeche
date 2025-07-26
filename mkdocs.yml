@@ -8,4 +8,10 @@ theme:
 
 plugins:
 - search
-- mkdocstrings
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          docstring_style: sphinx
+          docstring_section_style: list
+          merge_init_into_class: true
