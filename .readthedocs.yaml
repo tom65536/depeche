@@ -4,7 +4,6 @@
    os: "ubuntu-24.04"
    tools:
      python: "3"
-   jobs:
 
 python:
   install:
