@@ -22,10 +22,10 @@ If applicable, add terminal output, log files etc to help explain your problem.
 Run the example in a virtual environment with minimal requirements installed.
 
 **Environment (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser if applicable [e.g. chrome, safari]
- - Python version
- - Package version
+   - OS: [e.g. iOS]
+   - Browser if applicable [e.g. chrome, safari]
+   - Python version
+   - Package version
 
 **Additional context**
 Add any other context about the problem here.
