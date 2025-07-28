@@ -3,27 +3,9 @@
 import asyncio
 import inspect
 from collections.abc import Sequence
-from typing import (
-   Any,
-   Protocol,
-   TypeAlias,
-   TypeGuard,
-   Union,
-)
 
+from .types import Message, Responsive, is_responsive
 
-Message: TypeAlias = Union[object, Sequence[object]]
-
-
-class Responsive(Protocol):
-   """Protocol for objects with ``react`` field."""
-
-   react: Any
-
-
-def is_responsive(obj: object) -> TypeGuard[Responsive]:
-   """Check whether ``obj`` has a ``reactaa member."""
-   return hasattr(obj, 'react')
 
 
 class Dispatcher:
