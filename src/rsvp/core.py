@@ -4,8 +4,7 @@ import asyncio
 import inspect
 from collections.abc import Sequence
 
-from .types import Message, Responsive, is_responsive
-
+from .types import Message, is_responsive
 
 
 class Dispatcher:
